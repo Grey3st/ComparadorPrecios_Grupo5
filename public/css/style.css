@@ -1,0 +1,120 @@
+body{
+    background: rgb(36, 3, 3);
+    display: flex;/*Display flex filas y columnas*/
+    justify-content: center;/*Pone centrado el contenido(en display flex) en forma horizontal*/
+    margin-top: 50px;
+}
+
+.container {
+    display: grid;/*Display en modo cuadriculas(12 columnas)*/
+    grid-template-rows: auto auto auto; /* 3 filas automáticas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 10px; /* Espacio entre elementos */
+    justify-items: center; /* Centra horizontalmente */
+    align-content: space-evenly; /* Centra verticalmente, cuando hay mas de una fila(sin dejar espacio entre las mismas)*/
+    height: 510px; /* Alto del contenedor */
+    width: 510px;/*Ancho del contenedor*/
+    background: linear-gradient(to bottom, rgb(34, 30, 30), rgb(41, 40, 40));
+    border-radius: 25px;
+    box-shadow: 25px 20px 25px rgb(0, 0, 0);/*Agrega sombra, los parametros van sentido a las agujas de reloj*/
+    position: relative;
+    overflow: hidden;
+}
+
+h1{
+    background: linear-gradient(to top, red, rgb(89, 0, 255));/*Color en degrades*/
+    background-clip: text;/*El dregrades se aplica al texto */
+    -webkit-background-clip: text; /*Para que el degradado se aplique al texto */
+    color: transparent; /*Hace que el texto sea transparente para que el degradado sea visible */
+    grid-column: span 3;/*Indica la cantidad de columnas que ocupara*/
+    box-shadow: 3px 10px 15px 10px rgb(19, 17, 17);
+    transform: scale(1.1);/*Resalta de los demas elementos(efecto de agrandar)*/
+}
+.input-group {
+    grid-column: span 3; /* Los elementos en .input-group abarcan 3 columnas */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*3 columnas iguales para los inputs y el select */
+    gap: 10px; /*Espacio entre elementos */
+    
+}
+input::placeholder{/*Accedemos al placeholder de un input y darle estilos*/
+    color: rgb(185, 58, 185);
+    
+}
+
+
+.input-group input,
+.input-group select {
+    color: #cecacd;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%; /* Los inputs y select ocupan todo el ancho disponible en su contenedor */
+    background-color: rgb(60, 61, 58);
+    text-align: center;/*Para centrar el texto de los elementos*/
+}
+
+select{
+    border: 1px solid #ccc; /* Cambia el estilo del borde */
+    border-radius: 4px; /* Agrega bordes redondeados */
+    font-family: Arial, Helvetica, sans-serif;    
+    font-size: 13px;
+    
+}
+
+.input-group input:focus{/*Pseudo-Clase que se activa cuando tenemos seleccionado un elemento html(input)*/
+    outline: none;/*Quita los resaltadores predeterminados*/
+    background-color: rgb(61, 72, 82);
+    border: solid rgb(253, 253, 252) 1px;
+    border-radius: 5px;
+    
+    
+}
+
+.button {
+    font-size: 15px;
+    font-style: oblique;
+    background: linear-gradient(to top, red, rgb(89, 0, 255));
+    box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+}
+
+@media (max-width: 768px) {/* Estilos para pantallas más estrechas (768px o menos de ancho) */
+    h1{
+        transform: scale(0.9);
+    }
+    .input-group {
+        display: block; /* Hace que los elementos se muestren uno debajo del otro */
+        margin-top: 20px; /* Agrega espacio desde top entre los elementos */
+        width: 60%;
+    }
+    .input-group input{
+        text-align: center;
+    }
+    .input-group select{
+        font-size: 15px;
+        margin-top: 5px;
+        text-align: center;
+        border: 1px solid #ccc; /* Cambia el estilo del borde */
+        border-radius: 4px; /* Agrega bordes redondeados */
+        font-family: Arial, sans-serif; /* Cambia la fuente del texto */
+    } 
+    .button{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .input-group input:focus{
+        outline: none;
+        background-color: rgb(61, 72, 82);
+        border-radius: 5px;
+        transform: scaleX(1.2);/*Cuando se seleccione el input se produce un efecto de agrandarlo*/
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
