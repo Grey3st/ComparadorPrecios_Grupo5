@@ -1,5 +1,8 @@
 body{
-    background: rgb(36, 3, 3);
+    background-image: url("/public/img/fondoPiola.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;/*Display flex filas y columnas*/
     justify-content: center;/*Pone centrado el contenido(en display flex) en forma horizontal*/
     margin-top: 50px;
@@ -13,10 +16,10 @@ body{
     justify-items: center; /* Centra horizontalmente */
     align-content: space-evenly; /* Centra verticalmente, cuando hay mas de una fila(sin dejar espacio entre las mismas)*/
     height: 510px; /* Alto del contenedor */
-    width: 510px;/*Ancho del contenedor*/
-    background: linear-gradient(to bottom, rgb(34, 30, 30), rgb(41, 40, 40));
+    width: 570px;/*Ancho del contenedor*/
+    background: linear-gradient(to bottom, rgb(23, 32, 42 ), rgb(213, 216, 220 ));
     border-radius: 25px;
-    box-shadow: 25px 20px 25px rgb(0, 0, 0);/*Agrega sombra, los parametros van sentido a las agujas de reloj*/
+    box-shadow: 25px 20px 25px rgb(66, 73, 73);/*Agrega sombra, los parametros van sentido a las agujas de reloj*/
     position: relative;
     overflow: hidden;
 }
@@ -29,20 +32,21 @@ h1{
     grid-column: span 3;/*Indica la cantidad de columnas que ocupara*/
     box-shadow: 3px 10px 15px 10px rgb(19, 17, 17);
     transform: scale(1.1);/*Resalta de los demas elementos(efecto de agrandar)*/
+    padding: 1%;
+    border-radius: 5px;
 }
 .input-group {
     grid-column: span 3; /* Los elementos en .input-group abarcan 3 columnas */
     display: grid;
     grid-template-columns: repeat(3, 1fr); /*3 columnas iguales para los inputs y el select */
-    gap: 10px; /*Espacio entre elementos */
-    
+    gap: 15px; /*Espacio entre elementos */
+    height: 30px;
+    width: 550px;
 }
 input::placeholder{/*Accedemos al placeholder de un input y darle estilos*/
     color: rgb(185, 58, 185);
-    
+
 }
-
-
 .input-group input,
 .input-group select {
     color: #cecacd;
@@ -50,6 +54,7 @@ input::placeholder{/*Accedemos al placeholder de un input y darle estilos*/
     width: 100%; /* Los inputs y select ocupan todo el ancho disponible en su contenedor */
     background-color: rgb(60, 61, 58);
     text-align: center;/*Para centrar el texto de los elementos*/
+    border-radius: 20px;
 }
 
 select{
@@ -57,6 +62,7 @@ select{
     border-radius: 4px; /* Agrega bordes redondeados */
     font-family: Arial, Helvetica, sans-serif;    
     font-size: 13px;
+    
     
 }
 
@@ -74,12 +80,20 @@ select{
     font-style: oblique;
     background: linear-gradient(to top, red, rgb(89, 0, 255));
     box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+    
+}
+
+.listaProductos{
+    overflow-y: scroll;
+    text-align: center;
+
 }
 #guardarProducto{
     font-size: 15px;
     font-style: oblique;
-    background: linear-gradient(to top, red, rgb(89, 0, 255));
+    background: linear-gradient(to top, rgb(255, 0, 0), rgb(89, 0, 255));
     box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+    border-radius: 25px;
 }
 
 #listarProductos{
@@ -87,12 +101,14 @@ select{
     font-style: oblique;
     background: linear-gradient(to top, red, rgb(89, 0, 255));
     box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+    border-radius: 25px;
 }
 #compararPrecios{
     font-size: 15px;
     font-style: oblique;
     background: linear-gradient(to top, red, rgb(89, 0, 255));
     box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+    border-radius: 25px;
 }
 
 @media (max-width: 768px) {/* Estilos para pantallas más estrechas (768px o menos de ancho) */
