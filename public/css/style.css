@@ -75,6 +75,25 @@ select{
     background: linear-gradient(to top, red, rgb(89, 0, 255));
     box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
 }
+#guardarProducto{
+    font-size: 15px;
+    font-style: oblique;
+    background: linear-gradient(to top, red, rgb(89, 0, 255));
+    box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+}
+
+#listarProductos{
+    font-size: 15px;
+    font-style: oblique;
+    background: linear-gradient(to top, red, rgb(89, 0, 255));
+    box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+}
+#compararPrecios{
+    font-size: 15px;
+    font-style: oblique;
+    background: linear-gradient(to top, red, rgb(89, 0, 255));
+    box-shadow: 3px 10px 10px 10px rgb(34, 25, 25);
+}
 
 @media (max-width: 768px) {/* Estilos para pantallas más estrechas (768px o menos de ancho) */
     h1{

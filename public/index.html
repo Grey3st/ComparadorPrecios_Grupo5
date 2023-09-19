@@ -13,19 +13,26 @@
     <div class="container">
         <h1>Comparador de Precios</h1>
         <div class="input-group">
-            <input type="text" placeholder="Nombre del Producto">
-            <input type="number" placeholder="Precio del Producto">
-            <select>
+            <input type="text" id="nombreProducto" placeholder="Nombre del producto">
+            <input type="number" id="precioProducto" placeholder="Precio del Producto">
+            <select id="nombreComercio">
                 <option value="DIA">DIA</option>
                 <option value="COMODIN">COMODIN</option>
                 <option value="CARREFOUR">CARREFOUR</option>
                 <option value="CHANGOMAS">CHANGO MAS</option>
             </select>
         </div>
-        <button class="button">Guardar Producto</button>
-        <button class="button">Listar Productos</button>
-        <button class="button">Comparar Precios</button>
+        <button id="guardarProducto">Guardar Producto</button>
+        <button id="listarProductos">Listar Productos</button>
+        <button id="compararPrecios">Comparar Precios</button>
+        <ul id="listaProductos"></ul>
+        <ul id="productosBaratos"></ul>
     </div>
+
+
+    <script type='module' src="../src/index.js"></script>
+    <script type='module' src="../productos.js"></script>
+
 </body>
 
 </html>
