@@ -39,47 +39,41 @@ document.getElementById('listarProductos').addEventListener('click', () => {
 });
 
 document.getElementById('compararPrecios').addEventListener('click', () => {
-
-    if (productosAcumulados.listaProductos.length == 0) {
+    if (productosAcumulados.listaProductos.length === 0) {
         alert("NO HAY PRODUCTOS CARGADOS");
-    } else {
-        const pBaratos = document.getElementById('pBaratos');
-        pBaratos.innerHTML = '';
-
-        let productosMasBaratos = []; //lista que va a guardar los mas baratos
-        const productosBaratos = productosAcumulados.listaProductos;    //obtenemos la lista de todos los productos
-
-        /*
-            utilizamos 2 bucles que van a iterar por la misma lista, el bucle i se encarga 
-            de obtener el primer producto para asi poder comparar, 
-            y el bucle j se encarga de ir haciendo comparacion por comparacion de cada precio 
-            de los productos
-        */
-        for (let i = 0; i < productosBaratos.length; i++) {
-            let auxiliar = productosBaratos[i]; //obtenemos el primer producto de la lista
-            let encontro = false;
-            for (let j = i + 1; j < productosBaratos.length; j++) { //inicia en i+1 asi no toma la misma posicion que auxiliar
-                if (auxiliar.nombre == productosBaratos[j].nombre) {  //comparamos nombres       
-                    /*
-                        condicion para comparar que producto es mas barato, el mas barato
-                        se guarda en la lista de los productos mas baratos
-                    */
-                    encontro = true;
-                    if (auxiliar.precio < productosBaratos[j].precio) {
-                        productosMasBaratos.push(auxiliar);
-                        mostrarProducto(auxiliar, pBaratos);
-                    } else {
-                        productosMasBaratos.push(productosBaratos[j]);
-                        mostrarProducto(productosBaratos[j], pBaratos);
-
-                    }
-                }
-            }
-
-        }
-        console.log(productosMasBaratos);
+        return; // Salir de la función si no hay productos cargados
     }
+
+    const pBaratos = document.getElementById('pBaratos');
+    pBaratos.innerHTML = '';
+
+    const productosBaratos = {}; // Usar un objeto para rastrear los productos más baratos
+
+    // Recorremos la lista de productos
+    productosAcumulados.listaProductos.forEach(producto => {
+        const nombre = producto.nombre;
+        const precio = producto.precio;
+
+        // Comprobamos si ya tenemos un producto registrado con el mismo nombre
+        if (nombre in productosBaratos) {
+            // Si el precio es menor que el precio registrado, actualizamos la información
+            if (precio < productosBaratos[nombre].precio) {
+                productosBaratos[nombre] = { precio, producto };
+            }
+        } else {
+            // Si el nombre no está en productosBaratos, lo añadimos
+            productosBaratos[nombre] = { precio, producto };
+        }
+    });
+
+    // Mostramos los productos más baratos
+    Object.values(productosBaratos).forEach(({ producto }) => {
+        mostrarProducto(producto, pBaratos);
+    });
+
+    console.log(Object.values(productosBaratos).map(({ producto }) => producto)); // Mostramos los productos más baratos en la consola
 });
+
 
 function mostrarProducto(pro, pBaratos) {
     const listItem = document.createElement('ul');
