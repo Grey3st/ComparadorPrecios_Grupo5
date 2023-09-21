@@ -8,7 +8,10 @@ document.getElementById('guardarProducto').addEventListener('click', () => {
     const precioProducto = parseFloat(productosAcumulados.precioProducto.value);
     const nombreComercio = productosAcumulados.nombreComercio.value;
 
-    productosAcumulados.listaProductos.push({ nombre: nombreProducto, precio: precioProducto, comercio: nombreComercio });
+    /*Condicional para obligar al usuario a completar un campo especifico */
+    if (nombreProducto !== '') {
+        productosAcumulados.listaProductos.push({ nombre: nombreProducto, precio: precioProducto, comercio: nombreComercio });
+    
 
     // Limpia los campos después de agregar el producto epico me salio dea
     productosAcumulados.nombreProducto.value = '';
@@ -16,6 +19,9 @@ document.getElementById('guardarProducto').addEventListener('click', () => {
     productosAcumulados.nombreComercio.value = '';
 
     console.log(nombreProducto, precioProducto, nombreComercio);
+    } else {
+        console.log('Completa el campo "Nombre del Producto"');
+    }
 });
 
 document.getElementById('listarProductos').addEventListener('click', () => {
